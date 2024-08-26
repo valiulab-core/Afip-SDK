@@ -29,7 +29,7 @@
     "ts-jest": "^28.0.8",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4",
-    "vitepress": "1.2.3",
+    "vitepress": "1.3.4",
     "wsdl-to-ts": "^0.2.3",
     "wsdl-tsclient": "^1.4.0"
   },
