@@ -1,7 +1,7 @@
 {
-  "name": "afip.ts",
+  "name": "arca",
   "version": "3.2.2",
-  "description": "Afip typescript SDK",
+  "description": "Arca/Afip typescript SDK",
   "source": "src/index.ts",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
