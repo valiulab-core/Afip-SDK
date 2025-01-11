@@ -1,6 +1,6 @@
 import { testCuit } from "../mocks/data/voucher.mock";
 import { Afip } from "../../src/afip";
-import { TestConfigUtils } from "../utils/config.utils";
+import { TestConfigUtils } from "../libs/utils/config.utils";
 import { mockLoginCredentials } from "../mocks/data/credential-json.mock";
 import { RegisterScopeTenService } from "../../src/services/register-scope-ten.service";
 import {

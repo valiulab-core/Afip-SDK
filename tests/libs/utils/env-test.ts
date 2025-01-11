@@ -1,4 +1,4 @@
-import { Environment } from "../../src/utils/env";
+import { Environment } from "../../../src/libs/utils/env";
 
 class EnvirnonmentTest extends Environment {
   cuit: string;

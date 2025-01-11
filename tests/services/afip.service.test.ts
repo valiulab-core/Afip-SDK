@@ -2,13 +2,13 @@
 import { Client } from "soap";
 import { EndpointsEnum, SoapServiceVersion } from "../../src/enums";
 import { AfipService } from "../../src/services/afip.service";
-import { IServiceSoap12Soap } from "../../src/soap/interfaces/Service/ServiceSoap12";
-import { ServiceNamesEnum } from "../../src/soap/service-names.enum";
-import { WsdlPathEnum } from "../../src/soap/wsdl-path.enum";
+import { IServiceSoap12Soap } from "../../src/libs/soap/interfaces/Service/ServiceSoap12";
+import { ServiceNamesEnum } from "../../src/libs/soap/service-names.enum";
+import { WsdlPathEnum } from "../../src/libs/soap/wsdl-path.enum";
 import { AfipServiceSoapParam, Context } from "../../src/types";
 import { testCuit } from "../mocks/data/voucher.mock";
-import { TestConfigUtils } from "../utils/config.utils";
-import { mockFn } from "../utils/jest.utils";
+import { TestConfigUtils } from "../libs/utils/config.utils";
+import { mockFn } from "../libs/utils/jest.utils";
 
 describe("AfipService", () => {
   let afipService: AfipService<Client>;

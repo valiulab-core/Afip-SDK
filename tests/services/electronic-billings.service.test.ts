@@ -22,7 +22,7 @@ import {
   testPtoVta,
 } from "../mocks/data/voucher.mock";
 import { Afip } from "../../src/afip";
-import { TestConfigUtils } from "../utils/config.utils";
+import { TestConfigUtils } from "./../libs/utils/config.utils";
 import { AccessTicket } from "../../src/auth/access-ticket";
 import { mockLoginCredentials } from "../mocks/data/credential-json.mock";
 

@@ -47,7 +47,7 @@ describe("PDFInvoice", () => {
       //   .createPDFFromPath({
       //     templatePath: `${__dirname}/tests/assets/invoice_b_c-test.html`,
       //   })
-      //   .then((buffer) => writeFile("test-invoice", buffer))
+      //   .then((buffer) => writeFile("test-invoice.pdf", buffer))
       //   .then(() => console.log("Done."));
 
       // Assert the result
