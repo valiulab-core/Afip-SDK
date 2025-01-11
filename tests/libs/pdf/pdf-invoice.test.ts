@@ -1,7 +1,7 @@
-import { readFile } from "fs/promises";
-import { invoiceParamsTest } from "./pdf-invoice-payload";
-import { PDFInvoice } from "../pdf-invoice";
-import { PDF } from "../utils/pdf";
+import { readFile, writeFile } from "fs/promises";
+import { invoiceParamsTest } from "../../../src/libs/pdf/tests/pdf-invoice-payload";
+import { PDFInvoice } from "../../../src/libs/pdf/pdf-invoice";
+import { PDF } from "../../../src/libs/pdf/utils/pdf";
 
 describe("PDFInvoice", () => {
   describe("createPDF", () => {
@@ -43,12 +43,12 @@ describe("PDFInvoice", () => {
         template,
       });
 
-      // new PDFInvoice(invoiceParamsTest)
-      //   .createPDFFromPath({
-      //     templatePath: `${__dirname}/tests/assets/invoice_b_c-test.html`,
-      //   })
-      //   .then((buffer) => writeFile("test-invoice.pdf", buffer))
-      //   .then(() => console.log("Done."));
+      new PDFInvoice(invoiceParamsTest)
+        .createPDFFromPath({
+          templatePath: `${__dirname}/tests/assets/invoice_b_c-test.html`,
+        })
+        .then((buffer) => writeFile("test-invoice.pdf", buffer))
+        .then(() => console.log("Done."));
 
       // Assert the result
       expect(result).toEqual(pdf);

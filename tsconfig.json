@@ -98,6 +98,10 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": ["src", "__tests__/test-parser.ts"],
+  "include": [
+    "src",
+    "__tests__/test-parser.ts",
+    "tests/libs/pdf/pdf-invoice.test.ts"
+  ],
   "exclude": ["node_modules", "**/__tests__/*"]
 }

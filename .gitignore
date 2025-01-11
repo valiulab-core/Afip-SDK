@@ -11,4 +11,5 @@ tests/mocks/credentials
 
 docs/.vitepress/dist
 
+test-invoice
 test-invoice.pdf

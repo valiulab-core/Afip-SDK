@@ -6,7 +6,7 @@ import { AccessTicket } from "../../src/auth/access-ticket";
 import moment from "moment";
 import { promises as fs } from "fs";
 
-jest.mock("../../src/soap/soap-client-facade", () => ({
+jest.mock("../../src/libs/soap/soap-client-facade", () => ({
   create: jest.fn(() => ({
     loginCmsAsync: jest.fn(() => {
       return [{ loginCmsReturn: "" }, "", {}, ""];
