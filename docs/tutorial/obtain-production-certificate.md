@@ -30,7 +30,7 @@ Reemplaza:
  - `[CUIT]` con el CUIT de la empresa a la que pertenece el certificado (en producción, se recomienda usar tu propio CUIT para evitar confusiones).
  - `[nombre de archivo para el CSR]` con el nombre que deseas para el archivo CSR. Por ejemplo:
 ```
-openssl req -new -key keytest -subj "/C=AR/O=IvanM/CN=Test1/serialNumber=CUIT 11111111111" -out csr-test1
+openssl req -new -key keytest -subj "/C=AR/O=RA/CN=Test1/serialNumber=CUIT 11111111111" -out csr-test1
 ```
 
 Ahora, el archivo CSR está listo, y podemos proceder a la página de AFIP para generar el certificado.
