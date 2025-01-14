@@ -1,20 +1,16 @@
-import { readFile, writeFile } from "fs/promises";
-import { invoiceParamsTest } from "../../../src/libs/pdf/tests/pdf-invoice-payload";
+import { readFile } from "fs/promises";
+import { largeInvoiceParamsTest } from "./pdf-invoice-payload";
 import { PDFInvoice } from "../../../src/libs/pdf/pdf-invoice";
-import { PDF } from "../../../src/libs/pdf/utils/pdf";
 
 describe("PDFInvoice", () => {
-  describe("createPDF", () => {
-    it("should create PDF buffer from string template", async () => {
-      // Mock dependencies and setup test conditions
-      const pdfInvoice = new PDFInvoice(invoiceParamsTest);
+  describe("compilePdfTemplate", () => {
+    it("should create PDF buffer from string template (Invoice B C)", async () => {
+      const pdfInvoice = new PDFInvoice(largeInvoiceParamsTest);
       const template = await readFile(
-        `${__dirname}/assets/invoice_b_c-test.html`,
+        `${__dirname}/../../../src/libs/pdf/assets/invoice_b_c.html`,
         "utf-8"
       );
-      const pdf = await readFile(`${__dirname}/assets/test.pdf`);
 
-      // Mock the methods being called internally
       jest.spyOn(pdfInvoice as any, "getQrContent").mockReturnValueOnce({
         ver: 1,
         fecha: "2020-10-13",
@@ -30,28 +26,14 @@ describe("PDFInvoice", () => {
         tipoCodAut: "E",
         codAut: 70417054367476,
       });
-      jest.spyOn(pdfInvoice, "getQr").mockResolvedValueOnce("mocked QR string");
-      jest
-        .spyOn(pdfInvoice as any, "readInvoiceTemplate")
-        .mockResolvedValueOnce(template);
-      jest
-        .spyOn(pdfInvoice as any, "saveInvoice")
-        .mockResolvedValueOnce(undefined);
-      jest.spyOn(PDF, "generateFromHTML").mockResolvedValueOnce(pdf);
 
-      const result = await pdfInvoice.createPDF({
-        template,
-      });
+      const compiledTemplate = await pdfInvoice.compilePdfTemplate(template);
+      const expectedTemplate = await readFile(
+        `${__dirname}/test-b-c-template-compiled.html`,
+        "utf-8"
+      );
 
-      new PDFInvoice(invoiceParamsTest)
-        .createPDFFromPath({
-          templatePath: `${__dirname}/tests/assets/invoice_b_c-test.html`,
-        })
-        .then((buffer) => writeFile("test-invoice.pdf", buffer))
-        .then(() => console.log("Done."));
-
-      // Assert the result
-      expect(result).toEqual(pdf);
+      expect(compiledTemplate).toEqual(expectedTemplate);
     });
   });
 });

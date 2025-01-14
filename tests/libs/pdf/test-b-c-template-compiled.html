@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        margin-top: 0;
+    }
+
+    .page {
+        padding-top: 10px;
+        width: 20.6cm;
+        min-height: 27cm;
+        max-height: 29.7cm;
+        font-size: 13px;
+    }
+
+    .wrapper {
+        border: 1.5px solid #333;
+        padding: 5px;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+
+    .flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .no-margin {
+        margin: 0;
+    }
+
+    .relative {
+        position: relative;
+    }
+
+    .floating-mid {
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75px;
+        position: absolute;
+        top: 1px;
+        background: #fff;
+    }
+
+    .space-around {
+        justify-content: space-around;
+    }
+
+    .w50 {
+        width: 50%;
+    }
+
+    th {
+        border: 1px solid #000;
+        background: #ccc;
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    td {
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .text-20 {
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div class="page">
+        <div class="wrapper text-center bold text-20" style="width:100%;border-bottom: 0;">
+            ORIGINAL
+        </div>
+
+        <div class="flex relative">
+            <div class="wrapper inline-block w50 flex" style="border-right: 0">
+                <h3 class="text-center" style="font-size:24px;margin-bottom: 3px;width: 90%;">JOHN DOE</h3>
+                <p style="font-size: 13px;line-height: 1.5;margin-bottom: 0;align-self: flex-end;">
+                    <b>Razón Social:</b> John doe
+                    <br><b>Domicilio Comercial:</b> Monte 1234, Lugar falso, Buenos Aires
+                    <br><b>Condición frente al IVA: Excento</b>
+                </p>
+            </div>
+            <div class="wrapper inline-block w50">
+                <h3 class="text-center" style="font-size:24px;margin-bottom: 3px;">FACTURA</h3>
+                <p style="font-size: 13px;line-height: 1.5;margin-bottom: 0;">
+                    <b>Punto de Venta: 0001 Comp. Nro: 00000001</b>
+                    <br><b>Fecha de Emisión: 01/01/2020</b>
+                    <br><b>CUIT:</b> 20111111112
+                    <br><b>Ingresos Brutos:</b> 20111111112
+                    <br><b>Fecha de Inicio de Actividades:</b> 01/01/1990
+                </p>
+            </div>
+            <div class="wrapper floating-mid">
+                <h3 class="no-margin text-center" style="font-size: 36px;">C</h3>
+                <h5 class="no-margin text-center">COD. 001</h5>
+            </div>
+        </div>
+
+        <div class="wrapper flex space-around" style="margin-top: 1px;">
+            <span><b>Período Facturado Desde:</b> 01/01/1900 </span>
+            <span><b>Hasta:</b> 02/01/1900 </span>
+            <span><b>Fecha de Vto. para el pago:</b> 02/01/1900 </span>
+        </div>
+
+        <div class="wrapper" style="margin-top: 2px;font-size: 12px;">
+            <div class="flex" style="margin-bottom: 15px;">
+                <span style="width:30%"><b>CUIT:</b> 20111111112 </span>
+                <span><b>Apellido y Nombre / Razón Social:</b> John doe </span>
+            </div>
+            <div class="flex" style="flex-wrap: nowrap;margin-bottom: 5px;">
+                <span style="width:70%"><b>Condición frente al IVA:</b> Excento </span>
+                <span><b>Domicilio:</b> Un lugar </span>
+            </div>
+            <div class="flex">
+                <span><b>Condición de venta:</b> otro </span>
+            </div>
+        </div>
+
+        <div style="margin-top: 5px; min-height: 500px;">
+            <table>
+                <thead>
+                    <th class="text-left">Código</th>
+                    <th class="text-left">Producto / Servicio</th>
+                    <th>Cantidad</th>
+                    <th>U. Medida</th>
+                    <th>Precio Unit.</th>
+                    <th>% Bonif</th>
+                    <th>Imp. Bonif.</th>
+                    <th>Subtotal</th>
+                </thead>
+                <tbody>
+                    <!-- 21 -->
+                    <tr>
+                        <td class="text-left">001</td>
+                        <td class="text-left">Widget A</td>
+                        <td class="text-right">2</td>
+                        <td class="text-center">pcs</td>
+                        <td class="text-right">10.5</td>
+                        <td class="text-center">5</td>
+                        <td class="text-right">1.5</td>
+                        <td class="text-right">19.95</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">002</td>
+                        <td class="text-left">Gadget B</td>
+                        <td class="text-right">5</td>
+                        <td class="text-center">units</td>
+                        <td class="text-right">8.75</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">43.75</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">003</td>
+                        <td class="text-left">Service C</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">hour</td>
+                        <td class="text-right">30</td>
+                        <td class="text-center">10</td>
+                        <td class="text-right">3</td>
+                        <td class="text-right">27</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">004</td>
+                        <td class="text-left">Accessory D</td>
+                        <td class="text-right">3</td>
+                        <td class="text-center">pieces</td>
+                        <td class="text-right">5.99</td>
+                        <td class="text-center">2</td>
+                        <td class="text-right">0.36</td>
+                        <td class="text-right">17.91</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">005</td>
+                        <td class="text-left">Software E</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">license</td>
+                        <td class="text-right">49.99</td>
+                        <td class="text-center">15</td>
+                        <td class="text-right">7.5</td>
+                        <td class="text-right">42.49</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">006</td>
+                        <td class="text-left">Maintenance F</td>
+                        <td class="text-right">2</td>
+                        <td class="text-center">months</td>
+                        <td class="text-right">15</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">30</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">007</td>
+                        <td class="text-left">Part G</td>
+                        <td class="text-right">4</td>
+                        <td class="text-center">units</td>
+                        <td class="text-right">12.25</td>
+                        <td class="text-center">8</td>
+                        <td class="text-right">3.9</td>
+                        <td class="text-right">44.7</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">008</td>
+                        <td class="text-left">Consulting Service H</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">session</td>
+                        <td class="text-right">75</td>
+                        <td class="text-center">20</td>
+                        <td class="text-right">15</td>
+                        <td class="text-right">60</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">009</td>
+                        <td class="text-left">Training Course I</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">day</td>
+                        <td class="text-right">120</td>
+                        <td class="text-center">5</td>
+                        <td class="text-right">6</td>
+                        <td class="text-right">114</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">010</td>
+                        <td class="text-left">Subscription J</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">year</td>
+                        <td class="text-right">99.99</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">99.99</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">011</td>
+                        <td class="text-left">Product K</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">unit</td>
+                        <td class="text-right">100</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">100</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">012</td>
+                        <td class="text-left">Service L</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">hour</td>
+                        <td class="text-right">50</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">50</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">013</td>
+                        <td class="text-left">Product M</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">unit</td>
+                        <td class="text-right">75</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">75</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">014</td>
+                        <td class="text-left">Service N</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">hour</td>
+                        <td class="text-right">25</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">25</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">015</td>
+                        <td class="text-left">Product O</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">unit</td>
+                        <td class="text-right">150</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">150</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">016</td>
+                        <td class="text-left">Service P</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">hour</td>
+                        <td class="text-right">75</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">75</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">017</td>
+                        <td class="text-left">Product Q</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">unit</td>
+                        <td class="text-right">200</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">200</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">018</td>
+                        <td class="text-left">Service R</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">hour</td>
+                        <td class="text-right">100</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">100</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">019</td>
+                        <td class="text-left">Product S</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">unit</td>
+                        <td class="text-right">250</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">250</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">020</td>
+                        <td class="text-left">Service T</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">hour</td>
+                        <td class="text-right">125</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">125</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer" style="margin-top: 40px;">
+
+            <div style="height: 94.5px; ">
+                <hr>
+                <div class="text-right" style="padding-right: 10px;">
+                    <b><label style="margin-right: 30px;">Subtotal:</label> 499.79</b>
+                </div>
+                <hr>
+            </div>
+
+            <div class="flex relative" style="margin-top: 20px;">
+                <div class="qr-container" style="padding: 0 20px 20px 20px;width: 20%;">
+                    <img src="data:image/png;base64,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&#x3D;" style="max-width: 100%;">
+                </div>
+                <div style="padding-left: 10px;width: 45%;">
+                    <img src="data:image/jpeg;base64,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"
+                        style="max-width:130px">
+                    <h4 class="italic bold">Comprobante Autorizado</h4>
+                    <p class="small italic bold" style="font-size: 9px;">Esta Administración Federal no se
+                        responsabiliza
+                        por los datos ingresados en el detalle de la operación</p>
+                </div>
+                <div class="flex" style="align-self: flex-start;width: 35%;">
+                    <span class="text-right" style="width:50%"><b>CAE N°:</b></span><span class="text-left"
+                        style="padding-left: 10px;">73498487261799</span>
+                    <span class="text-right" style="width:50%"><b>Fecha de Vto. de CAE:</b></span><span
+                        class="text-left" style="padding-left: 10px;">15/12/2023</span>
+                </div>
+                <span class="floating-mid bold">Pág 1/2</span>
+            </div>
+        </div>
+    </div>
+    <div class="page">
+        <div class="wrapper text-center bold text-20" style="width:100%;border-bottom: 0;">
+            ORIGINAL
+        </div>
+
+        <div class="flex relative">
+            <div class="wrapper inline-block w50 flex" style="border-right: 0">
+                <h3 class="text-center" style="font-size:24px;margin-bottom: 3px;width: 90%;">JOHN DOE</h3>
+                <p style="font-size: 13px;line-height: 1.5;margin-bottom: 0;align-self: flex-end;">
+                    <b>Razón Social:</b> John doe
+                    <br><b>Domicilio Comercial:</b> Monte 1234, Lugar falso, Buenos Aires
+                    <br><b>Condición frente al IVA: Excento</b>
+                </p>
+            </div>
+            <div class="wrapper inline-block w50">
+                <h3 class="text-center" style="font-size:24px;margin-bottom: 3px;">FACTURA</h3>
+                <p style="font-size: 13px;line-height: 1.5;margin-bottom: 0;">
+                    <b>Punto de Venta: 0001 Comp. Nro: 00000001</b>
+                    <br><b>Fecha de Emisión: 01/01/2020</b>
+                    <br><b>CUIT:</b> 20111111112
+                    <br><b>Ingresos Brutos:</b> 20111111112
+                    <br><b>Fecha de Inicio de Actividades:</b> 01/01/1990
+                </p>
+            </div>
+            <div class="wrapper floating-mid">
+                <h3 class="no-margin text-center" style="font-size: 36px;">C</h3>
+                <h5 class="no-margin text-center">COD. 001</h5>
+            </div>
+        </div>
+
+        <div class="wrapper flex space-around" style="margin-top: 1px;">
+            <span><b>Período Facturado Desde:</b> 01/01/1900 </span>
+            <span><b>Hasta:</b> 02/01/1900 </span>
+            <span><b>Fecha de Vto. para el pago:</b> 02/01/1900 </span>
+        </div>
+
+        <div class="wrapper" style="margin-top: 2px;font-size: 12px;">
+            <div class="flex" style="margin-bottom: 15px;">
+                <span style="width:30%"><b>CUIT:</b> 20111111112 </span>
+                <span><b>Apellido y Nombre / Razón Social:</b> John doe </span>
+            </div>
+            <div class="flex" style="flex-wrap: nowrap;margin-bottom: 5px;">
+                <span style="width:70%"><b>Condición frente al IVA:</b> Excento </span>
+                <span><b>Domicilio:</b> Un lugar </span>
+            </div>
+            <div class="flex">
+                <span><b>Condición de venta:</b> otro </span>
+            </div>
+        </div>
+
+        <div style="margin-top: 5px; min-height: 500px;">
+            <table>
+                <thead>
+                    <th class="text-left">Código</th>
+                    <th class="text-left">Producto / Servicio</th>
+                    <th>Cantidad</th>
+                    <th>U. Medida</th>
+                    <th>Precio Unit.</th>
+                    <th>% Bonif</th>
+                    <th>Imp. Bonif.</th>
+                    <th>Subtotal</th>
+                </thead>
+                <tbody>
+                    <!-- 21 -->
+                    <tr>
+                        <td class="text-left">011</td>
+                        <td class="text-left">Product K</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">unit</td>
+                        <td class="text-right">100</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">100</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">012</td>
+                        <td class="text-left">Service L</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">hour</td>
+                        <td class="text-right">50</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">50</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">013</td>
+                        <td class="text-left">Product M</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">unit</td>
+                        <td class="text-right">75</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">75</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">014</td>
+                        <td class="text-left">Service N</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">hour</td>
+                        <td class="text-right">25</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">25</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">015</td>
+                        <td class="text-left">Product O</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">unit</td>
+                        <td class="text-right">150</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">150</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">016</td>
+                        <td class="text-left">Service P</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">hour</td>
+                        <td class="text-right">75</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">75</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">017</td>
+                        <td class="text-left">Product Q</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">unit</td>
+                        <td class="text-right">200</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">200</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">018</td>
+                        <td class="text-left">Service R</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">hour</td>
+                        <td class="text-right">100</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">100</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">019</td>
+                        <td class="text-left">Product S</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">unit</td>
+                        <td class="text-right">250</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">250</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">020</td>
+                        <td class="text-left">Service T</td>
+                        <td class="text-right">1</td>
+                        <td class="text-center">hour</td>
+                        <td class="text-right">125</td>
+                        <td class="text-center">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">125</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer" style="margin-top: 40px;">
+
+            <div class="flex wrapper" style="padding-top: 40px;">
+                <span style="width: 60%"></span><span class="text-right" style="width:20%"><b>Subtotal:
+                        $</b></span><span class="text-right" style="width:20%"><b>40000,00</b></span>
+                <span style="width: 59%"></span><span class="text-right" style="width:21%"><b>Importe Otros Tributos: $
+                    </b></span><span class="text-right" style="width:20%"><b>0,00</b></span>
+                <span style="width: 60%"></span><span class="text-right" style="width:20%"><b>Importe Total:
+                        $</b></span><span class="text-right" style="width:20%"><b>40000,00</b></span>
+            </div>
+
+            <div class="flex relative" style="margin-top: 20px;">
+                <div class="qr-container" style="padding: 0 20px 20px 20px;width: 20%;">
+                    <img src="data:image/png;base64,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&#x3D;" style="max-width: 100%;">
+                </div>
+                <div style="padding-left: 10px;width: 45%;">
+                    <img src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAADsAAAAfCAYAAABZGLWTAAABeWlDQ1BrQ0dDb2xvclNwYWNlSVRVUl8yMDIwAAAokXWQv0tCURTHv9oPqYQIhJaGO0mFT0ojHP0RSNAgplBtz6c9BX1eni/CJWhuEfoPKpp0aWqoaK+moCkiKKg9cCm7nfteoRady+F8+HLu9557AHdA5bw8CKBiWGY6GWdr6xvM84JhjNBZhF/VajyWSq1QC35qf7Tv4JL1VpFerH5zPjOxczIePVbaexelv/19MZov1DSqH5RLGjctwBUlTm1bXHKD2GfSUMRHknWHTyXnHL62ezLpBPEjMdOKah5wS/9ArkfXe7hS3tK+Z5DTewtGdpXqNOUU0ihAQxAMy8ggC4UUhjhxECHM2alg/h+PBdsjgSo46jBRgo4iLHKIkcJRJnfpbNhvBIgdz7Dc/e+ddrUm7TJZFULsdrVZ0ppPgKfV1dgAMNYCrj65aqq2RArckWfglf4+SX2SfWe1zXDImd4bB4YehHjzk9c+0GkI8X4gROeQLt8Dl8YXM3lsJwPHewUAAAAEY0lDUAkOAAFbm62EAAAAVmVYSWZNTQAqAAAACAABh2kABAAAAAEAAAAaAAAAAAADkoYABwAAABIAAABEoAIABAAAAAEAAAA7oAMABAAAAAEAAAAfAAAAAEFTQ0lJAAAAU2NyZWVuc2hvdJ9rnOMAAAHUaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjMxPC9leGlmOlBpeGVsWURpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6UGl4ZWxYRGltZW5zaW9uPjU5PC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6VXNlckNvbW1lbnQ+U2NyZWVuc2hvdDwvZXhpZjpVc2VyQ29tbWVudD4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CuKBbFcAAAkdSURBVFgJ7Vh5UJXXFf+xiCzKIpsi4AKIosimaQZcAHEdNTZqa6wzmmpmmr9q05pJgonVRNNpKzE1aZtOK6srKLgMiAiCBmUxChpZFBeUTXZRkIc80nPO833D2zD/GnNn3vvuPffc5dx7zu+cc81+oIJXpJi/InKKmK+UsJYvutnW1lZkZmUKm7u7OxYuWGh0SH5+Pu4/uK/TZ0YtuxEj4D9pEgICpsLMjCmGZWBgAEXFRSgtKUZzSwssLCwxfpw3IiOjMHGij+GA55SM4xno6uqS1so3V8LOzs4kL3e8UNiExHjEx++TSYYNs0JIcAjc3NwMJj2WfhS5uWcN6FqCr68vPt3xGaZPD9KS5Hv9+jVs3RqLmts1OnRu7I7bjSWLl2Dbtu0YQYc2uNy8WY3Y2A8VEh/YhvUblLaxypBq3NPTg7S0NGXcs2d9SNmfrLRNVTw8xsLbexy8vLwwfLi1sNXU1GDjpo2ora1Vhl3+7jLWb1ivCMq8U6dOw5QpAbC0HCZ8rFVffrlHGaOtJCQmaKvy5X2p1Wodmn5jSGHTjqbh8WONmvj7T5axqamp4EMYqsTvS0BW5mmczjqDi4WXsHLlKmHv6enGvvj/Sf3p06fY8v6foFL1SnvNr9fgfMEFHDmcirRU0pKzeYiOjsGcOXPx3nt/1FmupbUFmZka0/L3nyJ9jQ0NyD6TrcOn3zApLJ/S/ue3GBwSgi1b3pexXV2PwCr7Y4u1tTU2//4PCntFRYXUT506heaHD6UeFT2PVPkTHVV1cXHBni/2YO8/voKNjY0ynisH9qeAtYwxIG53HNxHj5b+RLrtoTypSWHPkv3V1dXJJGvXrMXrv3gd48dPkHZycjLYRn5s6evrU1jNLTRLlpQUKbR1a39jFLwsLCxInXVhhTXi8JEjMjYiYhbtaTxWr/qVtL///jquXLmizKtfMSms1iacnV0wf/4C2QyrGpe6ugc4e9Y0GA1epKmpCTs+26GQQkNCpd7e3q7QvLy9lfqLKhkZ6Xj0qFPY3lrzlnxXr1oNBk8u8QkaMJWG3p9RYcvKynCtvExYFy1chCdPnoA3N3duJKyshgs9ISnepMosW74UoWEhCAkNxryYKBTkn5MxroTiG3+7SerskrSlrbVNWx3yy9qUnJIkPG7kBqcFBsq+zM3NER4RIfSCggIdEBw8oVFh2d1oy/4DKZg9J0J+i5csRF+fSrrK6UDKy8u1bDpf5mHg0fJyZ2hoGA6kHADbIpegQS7o5KmTQnvRXz4dmhbN2d7nzp2t7E17oAMDarDtGisGwrKK5ubmGuM1oJlSmZ07P8d/vvkv/vbX3Yp6dXZ2YtQoZ2WON1asIOCxlfahQweRnn5MR1P4Fr/+59fka/+u0LWmpUxionL8xHF0dnYY9OpaP3UnJTH4aPzVv//1DcJmzDAY9M47m1BWdhV5eXl4QIfj5emlwzMjbAY8PT2F1thYj7gv4nDnzm3EUZDw0UexQnchLPjggw8pYPhY1tv6cSxSUlIQFBQENa1fUlKC+/c1PtnMzBwLCDe+I7/MZdnS5fhk2zapD/7jA9u1ayd6e5/i4KFDePd37w7uhs7NPn78GOkZx4RhwoSJmDVrNmzp9PV/WmDgQ0lKTNSZUL/x9tsbRYWZfuDgfhQWFiosq8j/bt/+qXLDVdWVhLSHKJBJVQT185sE5htsWuvWrTPYE+/xlyveJPc1UuY/SNqiUmlMTrugzs1yCBZNPo9LTEyMUXfAfQsoPr5UdAn9/Wq5FVa5mTNfUzZta6tRT+Zl8Ph811+w96u93EQxuZzw8HBlbhYkkoDv6LE0lJaWorm5mVR/GMaNG4foqGgsWrRY3Nxw8tdL6UadnUdJlCWT6f3xups3byat02DJ3bt3MHmyJuhgVrOf81m9E/upNHVs9mUXqr2jHRxhmSoWf6YyuPPIkcOSdbBNVlVXwZX8Ynp6usA/+1UXF2fcuHED9fV1qKisgP1Ie9yquYUuShju1d6DxxgPdHd3I4OArrb2PkaOHEnRVg6sKb51dHTEmZwzqK6uhpOTk7gbq+FWqCXU5TkdHRxx8dJFGVNVVQUPDw9cuXoF5dfKZW6Oezl6YmxxcHBADs3V3d2DBkoC1Op+FBcVSZDxkHxwf38/bt++LXNo5dMBKHbYnFGcP18gURODVWtbK1oooWafyME3ZxssAJelS5dR4NAnm+E4miGfw8Fnz57B08sbNtY2kr49IeFtnwfzAkAU73JCwQ8DjKI1t27JXLzBmzdvgjfr5OgkazA/CxkzLwYnT55Ae0eHHOYjStrnEY2ThKzTWWhsbMDy5W/gFAUo3ZSV1dfXC4CGhYXJPPynA1BlFCJOplSukm5sYOAHETQ4KJjcxbf0YjCRXhAs5HuVoicWuIU2EhQcLBObky+0t7eX1wJ+MTidfVp4ONkvIi3hHNXHxwecrPMts8bk5ORgasBU8atNJKA9zTlpkj/uEIo6kRbcohyY98M+Wk2I7+frhw4S1tXVVQ6WNWTMmDGSLLi7j8ZV8v0O9g60B1t5Gck7l4f5MfONC6tQf6IVHTXWl5HVhyMZKysrek6Zjra2Nly+fJleIbzAasS26TPRB6wRnDBUVNwgO69GIAXoDfUNpH4D4lO1gUR4eASpbovcHq9VWVkJFcXRbH8VZLOc+7q5ucPPz4/mqpBoioOcVStXgx8NZr42UzQnOzsboaQxDU2NGKC8e9q0QPKtZeLz+d1K/wlHK9eQaMzJMdspx5mswqWlJeTkF8nkHZQFcQgnKq8ekMirlyIWDvRZ9Vtam9FB8TA/vXDy70sqyIDHMbK2XLxYiGJ6aONHsyAa09vbSwfaKuDS3NIswMb229jYKMB08sQJ4WllDCFV5T62T1H7UU6IjIqiyynWTm/w1bFZg14icGrHcD527FjZKKO0N70t9faqZGP8athBkG9nNwL9hIgq2nBg4HSxTUuKhPgd6tsLF2BGkRQ/AJwjO2Lh3ekG7967CyvKQxnY6ghQ+EY4G2KA9KRxHJkFkK1XVlWCMYH5fOjhLi83jyIjf8EVJxKSQa6ctEul6qMIMFo0xJgsLxTW2KCXlTakGr+sQpna98/CmjqZl53+St3s/wGZUBRewLwT1gAAAABJRU5ErkJggg=="
+                        style="max-width:130px">
+                    <h4 class="italic bold">Comprobante Autorizado</h4>
+                    <p class="small italic bold" style="font-size: 9px;">Esta Administración Federal no se
+                        responsabiliza
+                        por los datos ingresados en el detalle de la operación</p>
+                </div>
+                <div class="flex" style="align-self: flex-start;width: 35%;">
+                    <span class="text-right" style="width:50%"><b>CAE N°:</b></span><span class="text-left"
+                        style="padding-left: 10px;">73498487261799</span>
+                    <span class="text-right" style="width:50%"><b>Fecha de Vto. de CAE:</b></span><span
+                        class="text-left" style="padding-left: 10px;">15/12/2023</span>
+                </div>
+                <span class="floating-mid bold">Pág 2/2</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

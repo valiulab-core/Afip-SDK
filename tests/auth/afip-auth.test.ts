@@ -14,12 +14,12 @@ jest.mock("../../src/libs/soap/soap-client-facade", () => ({
   })),
 }));
 
-jest.mock("../../src/utils/parser", () => ({
+jest.mock("../../src/libs/utils/parser", () => ({
   jsonToXml: jest.fn((json) => JSON.stringify(json)),
   xmlToJson: jest.fn((xml) => JSON.parse(xml)),
 }));
 
-jest.mock("../../src/utils/crypt-data", () => ({
+jest.mock("../../src/libs/utils/crypt-data", () => ({
   Cryptography: jest.fn(() => ({
     sign: jest.fn(() => "signedTRA"),
   })),
@@ -38,7 +38,7 @@ jest.mock("fs", () => ({
   },
 }));
 
-jest.mock("../../src/utils/logger", () => ({
+jest.mock("../../src/libs/utils/logger", () => ({
   error: jest.fn(),
 }));
 

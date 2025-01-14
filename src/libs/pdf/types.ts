@@ -1,6 +1,12 @@
 import { FileHandle } from "fs/promises";
 import { PathLike } from "fs";
 
+export enum InvoiceType {
+  INVOICE_A = "INVOICE_A",
+  INVOICE_B = "INVOICE_B",
+  INVOICE_C = "INVOICE_C",
+}
+
 export type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 export type GenerateInvoiceMeta = Partial<
@@ -102,9 +108,14 @@ export interface InvoiceHeader {
   client: InvoiceHeaderClient;
 }
 
+export interface InvoicePage {
+  items: InvoiceItem[];
+  subtotal: number;
+}
+
 export interface InvoiceParams {
   header: InvoiceHeader;
-  items: InvoiceItem[];
+  pages: InvoicePage[];
   info: InvoiceInfo;
 }
 

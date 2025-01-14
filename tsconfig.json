@@ -101,7 +101,8 @@
   "include": [
     "src",
     "__tests__/test-parser.ts",
-    "tests/libs/pdf/pdf-invoice.test.ts"
+    "tests/libs/pdf/pdf-invoice.test.ts",
+    "tests/libs/pdf/pdf-invoice-payload.ts"
   ],
   "exclude": ["node_modules", "**/__tests__/*"]
 }

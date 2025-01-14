@@ -13,6 +13,32 @@ import {
 } from "./types";
 import { InvoiceTypeMap } from "./invoice-type-map";
 
+class PDFInvoiceConfig {
+  static templatePath: PathLike = `${__dirname}/assets`;
+  static encoding: BufferEncoding = "utf8";
+  static baseQrUrl = "https://www.afip.gob.ar/fe/qr/?p=";
+
+  static defaultInvoiceFileName: string = "invoice_b_c.html";
+
+  static setTemplatePath(path: PathLike) {
+    this.templatePath = path;
+  }
+
+  static setEncoding(encoding: BufferEncoding) {
+    this.encoding = encoding;
+  }
+
+  static getHTMLTemplatePath(
+    htmlFileName = PDFInvoiceConfig.defaultInvoiceFileName
+  ) {
+    return `${this.templatePath}/${htmlFileName}`;
+  }
+
+  static getQrUrl(qrString: string) {
+    return `${this.baseQrUrl}${qrString}`;
+  }
+}
+
 export class PDFInvoice {
   constructor(private payload: GenerateInvoiceParams) {}
 
@@ -21,14 +47,14 @@ export class PDFInvoice {
    *
    * URL https://www.afip.gob.ar/fe/qr/especificaciones.asp
    *
-   * @param data QRContent
    * @returns string
    */
-  async getQr(data: QRContent): Promise<string> {
-    const qrContentBase64 = Buffer.from(JSON.stringify(data)).toString(
+  async getQr(): Promise<string> {
+    const qrContent = this.getQrContent(this.payload);
+    const qrContentBase64 = Buffer.from(JSON.stringify(qrContent)).toString(
       "base64"
     );
-    const url = `https://www.afip.gob.ar/fe/qr/?p=${qrContentBase64}`;
+    const url = PDFInvoiceConfig.getQrUrl(qrContentBase64);
     return QR.toBase64(url);
   }
 
@@ -91,32 +117,50 @@ export class PDFInvoice {
     await writeFile(path, pdfBuffer);
   }
 
-  async createPDF({ template, saveIn }: CreatePDFFromBuffer) {
-    const qrContent = this.getQrContent(this.payload);
-    const qr = await this.getQr(qrContent);
+  /**
+   * Compile invoice template
+   * @param template string
+   * @returns
+   */
+  async compilePdfTemplate(template: string) {
     const compiler = new TemplateCompiler<InvoiceTemplateParams>(template, {
-      qr,
+      qr: await this.getQr(),
       ...this.payload,
     });
-    const buffer = await PDF.generateFromHTML(compiler.execute());
+    return compiler.execute();
+  }
 
+  /**
+   * Generate invoice PDF from buffer
+   *
+   * @param template CreatePDFFromBuffer
+   * @returns
+   */
+  async createPDF({ template, saveIn }: CreatePDFFromBuffer) {
+    const templateCompiled = await this.compilePdfTemplate(template);
+    const buffer = await PDF.generateFromHTML(templateCompiled);
     if (saveIn) await this.saveInvoice(buffer, saveIn);
-
     return buffer;
   }
 
   /**
-   * Generate invoice PDF
+   * Generate invoice PDF. Default invoice template is used if no templatePath is provided.
    *
    * @returns Promise<Buffer>
    * @throws Error
    */
-  async createPDFFromPath({
-    templatePath = `${__dirname}/assets/invoice_b_c.html`,
-    encoding = "utf8",
-    saveIn,
-  }: CreatePDFFromPath): Promise<Buffer> {
-    const htmlContent = await this.readInvoiceTemplate(templatePath, encoding);
+  async createPDFFromPath(params?: CreatePDFFromPath): Promise<Buffer> {
+    const { templatePath, encoding, saveIn } = params || {};
+    let htmlContent: string;
+    try {
+      htmlContent = await this.readInvoiceTemplate(
+        templatePath || PDFInvoiceConfig.getHTMLTemplatePath(),
+        encoding || PDFInvoiceConfig.encoding
+      );
+    } catch (error) {
+      console.log("Error reading invoice template", error);
+      throw new Error("Error reading invoice template: " + error.message);
+    }
     return this.createPDF({ template: htmlContent, saveIn });
   }
 }
