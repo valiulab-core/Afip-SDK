@@ -29,7 +29,7 @@ export type SoapClientParams = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface ILoginCredentials extends ILoginCmsReturn {}
+export interface ILoginCredentials extends ILoginCmsReturn { }
 
 export interface IAccessTicket extends ILoginCredentials {
   getSign(): string;
@@ -122,6 +122,8 @@ export interface IVoucher {
   FchVtoPago?: string;
   MonId: string;
   MonCotiz: number;
+  CanMisMonExt?: string;
+  CondicionIVAReceptorId: number;
   CbtesAsoc?: ICbtesAsoc[];
   Tributos?: ITributo[];
   Iva?: IIva[];
@@ -175,4 +177,4 @@ export interface ICreateVoucherResult {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface IGetSalesPointsResult extends IFEParamGetPtosVentaOutput {}
+export interface IGetSalesPointsResult extends IFEParamGetPtosVentaOutput { }

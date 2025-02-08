@@ -29,6 +29,7 @@ export const data: IVoucher = {
   ImpTrib: 0, //Importe total de tributos
   MonId: "PES", //Tipo de moneda usada en el comprobante (ver tipos disponibles)('PES' para pesos argentinos)
   MonCotiz: 1, // Cotización de la moneda usada (1 para pesos argentinos)
+  CondicionIVAReceptorId: 1, // Condición de IVA del receptor
   FchServDesde: moment().format("YYYYMMDD"),
   FchServHasta: moment().format("YYYYMMDD"),
   FchVtoPago: moment().format("YYYYMMDD"),
