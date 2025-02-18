@@ -65,6 +65,8 @@
           <s:element minOccurs="0" maxOccurs="1" name="FchVtoPago" type="s:string"/>
           <s:element minOccurs="0" maxOccurs="1" name="MonId" type="s:string"/>
           <s:element minOccurs="1" maxOccurs="1" name="MonCotiz" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="CanMisMonExt" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="CondicionIVAReceptorId" type="s:int"/>
           <s:element minOccurs="0" maxOccurs="1" name="CbtesAsoc" type="tns:ArrayOfCbteAsoc"/>
           <s:element minOccurs="0" maxOccurs="1" name="Tributos" type="tns:ArrayOfTributo"/>
           <s:element minOccurs="0" maxOccurs="1" name="Iva" type="tns:ArrayOfAlicIva"/>

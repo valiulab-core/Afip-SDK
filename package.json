@@ -1,6 +1,6 @@
 {
   "name": "afip.ts",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "description": "Afip typescript SDK",
   "source": "src/index.ts",
   "main": "lib/index.js",

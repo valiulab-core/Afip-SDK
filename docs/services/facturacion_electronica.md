@@ -52,6 +52,7 @@ let data = {
   ImpTrib: 0, //Importe total de tributos
   MonId: "PES", //Tipo de moneda usada en el comprobante (ver tipos disponibles)('PES' para pesos argentinos)
   MonCotiz: 1, // Cotización de la moneda usada (1 para pesos argentinos)
+  CondicionIVAReceptorId: 1, // Condición de IVA del receptor
   Iva: [
     // (Opcional) Alícuotas asociadas al comprobante
     {
